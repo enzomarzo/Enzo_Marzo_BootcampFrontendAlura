@@ -27,9 +27,9 @@ export default function Home() {
           />
           <Card />
         </CardsRowWrapper>
-        <CardFeatured 
-          imageDesktop="images/instaluraDesktop.jpg" 
-          imageMobile="images/instaluraMobile.jps"
+        <CardFeatured
+          imageDesktop="images/instaluraDesktop.jpg"
+          imageMobile="images/instaluraMobile.jpg"
           alt="Instalura"
         />
       </ProjectWrapper>

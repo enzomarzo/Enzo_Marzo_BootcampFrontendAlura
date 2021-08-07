@@ -26,9 +26,22 @@ export default function Footer() {
     <>
       <FooterWrapper>
         <FooterIcons>
-          <FooterIcon src="/images/iconGithub.svg" alt="github icon" />
-          <FooterIcon src="/images/icon_linkedin.svg" alt="linkedin icon" />
-          <FooterIcon src="/images/icon_medium.svg" alt="medium icon" />
+          <a href="https://github.com/enzomarzo/">
+            <FooterIcon
+              src="/images/iconGithub.svg"
+              alt="github icon"
+            />
+          </a>
+          <a href="https://www.linkedin.com/in/enzocmarzo/">
+            <FooterIcon
+              src="/images/icon_linkedin.svg"
+              alt="linkedin icon"
+            />
+          </a>
+          <FooterIcon
+            src="/images/icon_medium.svg"
+            alt="medium icon"
+          />
         </FooterIcons>
       </FooterWrapper>
     </>

@@ -4,8 +4,31 @@ import PropTypes from 'prop-types';
 import MediaQuery from 'react-responsive';
 import breakpointsMedia from '../../../../theme/utils/breakpointsMedia';
 
+export const FeaturedIcon = styled.span`
+  border: 1px solid black;
+  position: absolute;
+  margin: 10px;
+  z-index: 999;
+  background-color: white;
+  text-align: center;
+  border-radius: 2px;
+  ${breakpointsMedia({
+    xs: css`
+      width: 147px;
+      height: 31px;
+      font-size: 24px;
+    `,
+    md: css`
+      width: 228px;
+      height: 48px;
+      font-size: 38px;
+    `,
+  })}
+`;
+
 export const CardFeaturedWrapper = styled.div`
   height: 320px;
+  border-radius: 3px;
   align-self: center;
   display: flex;
   ${breakpointsMedia({
@@ -77,6 +100,7 @@ export const CardText = styled.div`
 export default function CardFeatured({ imageMobile, imageDesktop }) {
   return (
     <CardFeaturedWrapper>
+      <FeaturedIcon>Destaque</FeaturedIcon>
       <MediaQuery maxWidth={767}>
         <CardImage src={imageMobile} />
       </MediaQuery>
