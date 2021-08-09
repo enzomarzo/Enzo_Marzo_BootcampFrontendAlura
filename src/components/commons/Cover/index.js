@@ -9,6 +9,7 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-image: url("/image/coffee-apple.jpg")
 `;
 
 const MainTitle = styled.div`

@@ -29,8 +29,11 @@ export const FeaturedIcon = styled.span`
 export const CardFeaturedWrapper = styled.div`
   height: 320px;
   border-radius: 3px;
+  box-shadow: 0 3px 5px 0 rgba(0,0,0,0.1);
+  transition: 0.3s;
   align-self: center;
   display: flex;
+  border: 1px solid ${({ theme }) => theme.colors.primary};
   ${breakpointsMedia({
     xs: css`
       order:1;
@@ -44,7 +47,9 @@ export const CardFeaturedWrapper = styled.div`
       flex-direction: row;
     `,
   })}
-  border: 1px solid ${({ theme }) => theme.colors.primary};
+  &:hover { 
+    box-shadow: 0 6px 10px 0 rgba(0,0,0,0.2);
+  }
 `;
 
 export const CardImage = styled.img`

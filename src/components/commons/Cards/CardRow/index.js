@@ -8,10 +8,15 @@ export const CardWrapper = styled.div`
   width: 287px;
   border-radius: 3px;
   border: 1px solid ${({ theme }) => theme.colors.primary};
+  box-shadow: 0 3px 5px 0 rgba(0,0,0,0.1);
+  transition: 0.3s;
   ${breakpointsMedia({
     xs: 'height: 249px',
     md: 'height: 510px',
   })}
+  &:hover { 
+    box-shadow: 0 6px 10px 0 rgba(0,0,0,0.2);
+  }
 `;
 
 export const CardImage = styled.img`
