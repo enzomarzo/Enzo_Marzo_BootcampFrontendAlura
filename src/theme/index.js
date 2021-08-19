@@ -1,5 +1,5 @@
 export const colors = {
-  primary: '#E9C46A',
+  primary: '#2f2f2f',
   secondary: '#FFF8E6',
 };
 
@@ -15,5 +15,5 @@ export default {
   colors,
   breakpoints,
   transition: '200ms ease-in-out',
-  fontFamily: 'Fira Sans Condensed',
+  fontFamily: '"Montserrat", sans-serif',
 };

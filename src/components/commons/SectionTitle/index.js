@@ -7,7 +7,6 @@ export const SectionTitleWrapper = styled.h1`
   font-weight: 400;
   line-height: 72px;
   text-align: center;
-  text-transform: uppercase;
 `;
 
 export default function SectionTitle({ name }) {

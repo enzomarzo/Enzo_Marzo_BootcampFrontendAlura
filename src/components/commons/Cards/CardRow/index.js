@@ -6,8 +6,8 @@ import breakpointsMedia from '../../../../theme/utils/breakpointsMedia';
 
 export const CardWrapper = styled.div`
   width: 287px;
-  border-radius: 3px;
-  border: 1px solid ${({ theme }) => theme.colors.primary};
+  border-radius: 5px;
+  border: 1px solid rgba(0,0,0,0.35);
   box-shadow: 0 3px 5px 0 rgba(0,0,0,0.1);
   transition: 0.3s;
   ${breakpointsMedia({

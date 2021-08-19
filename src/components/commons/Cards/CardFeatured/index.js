@@ -28,12 +28,12 @@ export const FeaturedIcon = styled.span`
 
 export const CardFeaturedWrapper = styled.div`
   height: 320px;
-  border-radius: 3px;
+  border-radius: 2px;
   box-shadow: 0 3px 5px 0 rgba(0,0,0,0.1);
   transition: 0.3s;
   align-self: center;
   display: flex;
-  border: 1px solid ${({ theme }) => theme.colors.primary};
+  border: 1px solid rgba(0,0,0,0.35);
   ${breakpointsMedia({
     xs: css`
       order:1;
@@ -105,7 +105,7 @@ export const CardText = styled.div`
 export default function CardFeatured({ imageMobile, imageDesktop }) {
   return (
     <CardFeaturedWrapper>
-      <FeaturedIcon>Destaque</FeaturedIcon>
+      <FeaturedIcon>Bootcamp</FeaturedIcon>
       <MediaQuery maxWidth={767}>
         <CardImage src={imageMobile} />
       </MediaQuery>

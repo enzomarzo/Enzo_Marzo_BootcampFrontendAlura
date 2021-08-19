@@ -3,6 +3,9 @@ import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
 
 export const CardsRowWrapper = styled.div`
   display: flex;
+  gap: 20px;
+  align-self: center;
+  margin-bottom:20px;
   ${breakpointsMedia({
     xs: css`
       order: 2;
@@ -13,9 +16,6 @@ export const CardsRowWrapper = styled.div`
       order: 1;
       flex-direction: row`,
   })}
-  gap: 20px;
-  align-self: center;
-  margin-bottom:20px;
 `;
 
 export const ProjectWrapper = styled.div`

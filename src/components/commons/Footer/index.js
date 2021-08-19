@@ -26,13 +26,13 @@ export default function Footer() {
     <>
       <FooterWrapper>
         <FooterIcons>
-          <a href="https://github.com/enzomarzo/">
+          <a href="https://github.com/enzomarzo/" target="_blank" rel="noreferrer">
             <FooterIcon
               src="/images/iconGithub.svg"
               alt="github icon"
             />
           </a>
-          <a href="https://www.linkedin.com/in/enzocmarzo/">
+          <a href="https://www.linkedin.com/in/enzocmarzo/" target="_blank" rel="noreferrer">
             <FooterIcon
               src="/images/icon_linkedin.svg"
               alt="linkedin icon"

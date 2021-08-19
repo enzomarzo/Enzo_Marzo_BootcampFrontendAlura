@@ -4,8 +4,9 @@ import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
 
 const HeaderWrapper = styled.nav`
   display:flex;
-  height: 67px;
-  background-color: ${({ theme }) => theme.colors.secondary};
+  height: 60px;
+  background-color: white;
+  opacity: 0.95;
   position: fixed;
   top: 0;
   width: 100%;
@@ -30,8 +31,8 @@ const HeaderMenuRight = styled.div`
 
 const Menu = styled.span`
 ${breakpointsMedia({
-    xs: 'font-size: 18px; line-height: 22px ',
-    md: 'font-size: 28px; line-height: 34px',
+    xs: 'font-size: 14px; line-height: 18px ',
+    md: 'font-size: 24px; line-height: 30px',
   })}
 `;
 
@@ -40,7 +41,7 @@ export default function Header() {
     <HeaderWrapper>
       <HeaderMenuLeft />
       <HeaderMenuRight>
-        <Menu>Sobre mim</Menu>
+        <Menu>Sobre</Menu>
         <Menu>Contato</Menu>
       </HeaderMenuRight>
     </HeaderWrapper>

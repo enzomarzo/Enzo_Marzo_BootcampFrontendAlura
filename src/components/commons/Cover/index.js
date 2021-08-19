@@ -1,46 +1,76 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { Subtitle, Title } from '../../../theme/typographyVariants';
 import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
 
-const Container = styled.div`
-  width: 100vw;
+const Container = styled.section`
+  width: 100%;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-image: url("/image/coffee-apple.jpg")
+  display: block;
+  background-color: #2f2f2f;
 `;
 
-const MainTitle = styled.div`
-  display: block;
-  font-weight: 400;
-  margin: 0px auto;
-  text-align: center;
+const CoverWrapper = styled.div`
+  position: absolute;
+  left: 120px;
+  top: 240px;
   ${breakpointsMedia({
-    xs: 'font-size: 64px; line-height: 77px ',
-    md: 'font-size: 90px; line-height: 108px',
+    xs: css`
+      left: 30px;
+      width: 100%;
+    `,
+    sm: css`
+      left: 60px;
+      width: 75%;
+    `,
+    md: css`
+      left: 120px;
+      width: 50%;
+    `,
   })}
-
 `;
 
-const MainSubtitle = styled.span`
+const MainTitle = styled(Title)`
   display: block;
-  font-weight: 300;
-  font-size: 48px;
-  line-height: 57.6px;
   margin: 0px auto;
-  text-align: center;
+  text-align: left;
+  color: white;
+  margin-bottom: 10px
 `;
 
-const author = 'Enzo Marzo';
+const MainSubtitle = styled(Subtitle)`
+  display: block;
+  margin: 0 0 0 5px;
+  text-align: left;
+  letter-spacing: 0.4px;
+  color: white;
+`;
+
+const Button = styled.button`
+  display: block;
+  background-color: transparent;
+  overflow: visible;
+  font-weight: 400px;
+  color: #e6e4ec;
+  letter-spacing: 2px;
+  border: 1px solid rgba(238, 232, 255, 0.57);
+
+  padding: 10px;
+  border-radius: 2px;
+  margin: 30px 0px 0px 7px ;
+`;
 
 export default function Cover() {
   return (
     <>
       <Container>
-        <MainTitle>{author.toUpperCase()}</MainTitle>
-        <MainSubtitle>Portfolio</MainSubtitle>
+        <CoverWrapper>
+          <MainTitle>Olá, sou o Enzo</MainTitle>
+          <MainSubtitle>
+            desenvolvedor front-end, apaixonado por inovação e movido por desafios
+          </MainSubtitle>
+          <Button>Saiba mais</Button>
+        </CoverWrapper>
       </Container>
     </>
   );
