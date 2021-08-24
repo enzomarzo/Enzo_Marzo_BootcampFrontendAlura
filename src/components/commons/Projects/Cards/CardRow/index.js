@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import MediaQuery from 'react-responsive';
-import breakpointsMedia from '../../../../theme/utils/breakpointsMedia';
+import breakpointsMedia from '../../../../../theme/utils/breakpointsMedia';
 
 export const CardWrapper = styled.div`
   width: 287px;
@@ -30,7 +30,6 @@ export const CardImage = styled.img`
 export const CardTitle = styled.h3`
   font-weight: 700;
   text-align: center;
-  text-transform: uppercase;
   ${breakpointsMedia({
     xs: 'font-size: 24px',
     md: 'font-size: 32px',

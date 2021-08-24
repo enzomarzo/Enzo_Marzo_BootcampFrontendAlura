@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import MediaQuery from 'react-responsive';
-import breakpointsMedia from '../../../../theme/utils/breakpointsMedia';
+import breakpointsMedia from '../../../../../theme/utils/breakpointsMedia';
 
 export const FeaturedIcon = styled.span`
   border: 1px solid black;
@@ -68,7 +68,6 @@ export const CardBody = styled.div`
 export const CardTitle = styled.h3`
   font-weight: 700;
   display: block;
-  text-transform: uppercase;
   ${breakpointsMedia({
     xs: css`
       font-size: 24px;
@@ -90,7 +89,6 @@ export const CardText = styled.div`
   font-family: "Fira Sans", sans-serif;
   font-size: 18px;
   line-height: 22px;
-  text-transform: capitalize;
   margin-left: 35px;
   ${breakpointsMedia({
     xs: css`
@@ -114,10 +112,10 @@ export default function CardFeatured({ imageMobile, imageDesktop }) {
       </MediaQuery>
       {' '}
       <CardBody>
-        <CardTitle>Main Project</CardTitle>
+        <CardTitle>Instalura</CardTitle>
         <CardText>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-          molestie rhoncus vestibulum. Aenean blandit velit.
+          Utilizando o poder do NextJs e do Styled Components aliado
+          com boas práticas de desenvolvimento.
         </CardText>
       </CardBody>
     </CardFeaturedWrapper>

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { Subtitle, Title } from '../../../theme/typographyVariants';
+import { Title, Subtitle } from '../../../theme/typographyVariants';
 import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
 
 const Container = styled.section`
@@ -17,7 +17,6 @@ const CoverWrapper = styled.div`
   ${breakpointsMedia({
     xs: css`
       left: 30px;
-      width: 100%;
     `,
     sm: css`
       left: 60px;
