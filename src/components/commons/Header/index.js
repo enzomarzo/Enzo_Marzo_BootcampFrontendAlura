@@ -1,11 +1,39 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import {
   MenuIcon,
   HomeIcon,
   ProjectIcon,
   ContactIcon,
 } from './Icons';
+
+export const HeaderMobileWrapper = styled.div`
+  ${({ isOpen }) => {
+    if (isOpen) {
+      return css`
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        background: rgba(0,0,0,0.1);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        transition: .3s;
+        z-index: 999;
+        opacity: 0.5;
+        pointer-events: all;
+      `;
+    }
+    return css`
+      opacity: 1;
+      pointer-events: all;
+    `;
+  }}
+`;
 
 const Nav = styled.nav`
   display: flex;
@@ -21,10 +49,11 @@ const Nav = styled.nav`
   padding-right: 30px;
   opacity: 0.95;
   @media (max-width: 768px) { 
+    height: 0;
     padding-right: 0px;
     opacity: 1;
     display: absolute;
-    background-color: ${({ theme }) => theme.colors.primary};
+
   }
 `;
 
@@ -57,34 +86,43 @@ const NavItem = styled.a`
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <Nav data-safe-area="true">
-      <MenuIcon isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}>
-        <span />
-        <span />
-        <span />
-      </MenuIcon>
-      <HeaderMenu
-        isOpen={isOpen}
-        onClick={(event) => {
-          const isSafeArea = event.target.closest('[data-safe-area="true"]');
-          if (!isSafeArea) {
-            setIsOpen(false);
-          }
-        }}
+    <HeaderMobileWrapper
+      isOpen={isOpen}
+      onClick={(event) => {
+        const isSafeArea = event.target.closest('[data-safe-area="true"]');
+        console.log(isSafeArea);
+        if (!isSafeArea) {
+          setIsOpen(false);
+        }
+      }}
+    >
+      <Nav
+        data-safe-area="true"
       >
-        <NavItem>
-          <HomeIcon size="18" />
-          Sobre
-        </NavItem>
-        <NavItem>
-          <ProjectIcon size="18" />
-          Projetos
-        </NavItem>
-        <NavItem>
-          <ContactIcon size="18" />
-          Contato
-        </NavItem>
-      </HeaderMenu>
-    </Nav>
+        <MenuIcon isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}>
+          <span />
+          <span />
+          <span />
+        </MenuIcon>
+        <HeaderMenu
+
+          isOpen={isOpen}
+
+        >
+          <NavItem>
+            <HomeIcon size="18" />
+            Sobre
+          </NavItem>
+          <NavItem>
+            <ProjectIcon size="18" />
+            Projetos
+          </NavItem>
+          <NavItem>
+            <ContactIcon size="18" />
+            Contato
+          </NavItem>
+        </HeaderMenu>
+      </Nav>
+    </HeaderMobileWrapper>
   );
 }

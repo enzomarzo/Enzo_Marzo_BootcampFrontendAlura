@@ -1,4 +1,7 @@
-import React from 'react';
+
+
+
+/* import React from 'react';
 
 // máscara de telefone (praticando)
 export default function Telefone() {
@@ -20,7 +23,7 @@ export default function Telefone() {
     </>
   );
 }
-
+ */
 // 1 pegar os dados do input
 // 2 tirar o hifen, caso tenha, com o replace
 // 3 incluir o hifen se tiver 8 ou 9 numeros

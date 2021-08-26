@@ -65,5 +65,6 @@ export const MenuIcon = styled.div`
   }
   @media (max-width: 768px) { 
     display: flex;
+    margin-top: 60px;
   }
 `;
