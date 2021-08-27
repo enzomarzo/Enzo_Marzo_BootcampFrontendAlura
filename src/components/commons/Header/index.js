@@ -15,7 +15,7 @@ export const HeaderMobileWrapper = styled.div`
         display: flex;
         flex-direction: column;
         align-items: stretch;
-        background: rgba(0,0,0,0.1);
+        background: rgba(0,0,0,0.5);
         position: fixed;
         top: 0;
         left: 0;
@@ -24,13 +24,12 @@ export const HeaderMobileWrapper = styled.div`
         margin: auto;
         transition: .3s;
         z-index: 999;
-        opacity: 0.5;
+        opacity: 1;
         pointer-events: all;
       `;
     }
     return css`
       opacity: 1;
-      pointer-events: all;
     `;
   }}
 `;
@@ -90,25 +89,18 @@ export default function Header() {
       isOpen={isOpen}
       onClick={(event) => {
         const isSafeArea = event.target.closest('[data-safe-area="true"]');
-        console.log(isSafeArea);
         if (!isSafeArea) {
           setIsOpen(false);
         }
       }}
     >
-      <Nav
-        data-safe-area="true"
-      >
+      <Nav data-safe-area="true">
         <MenuIcon isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}>
           <span />
           <span />
           <span />
         </MenuIcon>
-        <HeaderMenu
-
-          isOpen={isOpen}
-
-        >
+        <HeaderMenu isOpen={isOpen}>
           <NavItem>
             <HomeIcon size="18" />
             Sobre
