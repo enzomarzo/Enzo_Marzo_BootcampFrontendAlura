@@ -1,6 +1,3 @@
-
-
-
 /* import React from 'react';
 
 // máscara de telefone (praticando)
