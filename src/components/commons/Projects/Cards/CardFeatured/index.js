@@ -28,7 +28,7 @@ export const FeaturedIcon = styled.span`
 
 export const CardFeaturedWrapper = styled.div`
   height: 320px;
-  border-radius: 2px;
+  border-radius: 6px;
   box-shadow: 0 3px 5px 0 rgba(0,0,0,0.1);
   transition: 0.3s;
   align-self: center;
@@ -37,13 +37,13 @@ export const CardFeaturedWrapper = styled.div`
   ${breakpointsMedia({
     xs: css`
       order:1;
-      width: 287px;
+      width: 290px;
       flex-direction: column;
       margin-bottom: 20px;
     `,
     md: css`
       order: 2;
-      width: 900px;
+      width: 910px;
       flex-direction: row;
     `,
   })}
@@ -54,6 +54,7 @@ export const CardFeaturedWrapper = styled.div`
 
 export const CardImage = styled.img`
   height: 100%;
+  z-index: -1;
   ${breakpointsMedia({
     xs: 'width: 288px',
     md: 'width: 593px',

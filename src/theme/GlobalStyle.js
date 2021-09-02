@@ -13,12 +13,24 @@ const GlobalStyle = createGlobalStyle`
     display: flex;
     min-height:100vh;
     width: 100%;
+    scroll-behavior: smooth;
   }
 
   #__next { 
     flex: 1;
     display: flex;
     flex-direction: column;
+  }
+
+  //ajustando o margin body por conta do fixed menu no desktop
+  #projetos, #contato { 
+    padding-top: 200px;
+    margin-top: -200px;
+  }
+  @media(min-width: 768px) {
+    body {
+      margin-top: 60px;
+    }
   }
 `;
 

@@ -5,14 +5,14 @@ import MediaQuery from 'react-responsive';
 import breakpointsMedia from '../../../../../theme/utils/breakpointsMedia';
 
 export const CardWrapper = styled.div`
-  width: 287px;
-  border-radius: 5px;
+  width: 290px;
+  border-radius: 6px;
   border: 1px solid rgba(0,0,0,0.35);
   box-shadow: 0 3px 5px 0 rgba(0,0,0,0.1);
   transition: 0.3s;
   ${breakpointsMedia({
     xs: 'height: 249px',
-    md: 'height: 510px',
+    md: 'height: 460px',
   })}
   &:hover { 
     box-shadow: 0 6px 10px 0 rgba(0,0,0,0.2);
@@ -21,9 +21,10 @@ export const CardWrapper = styled.div`
 
 export const CardImage = styled.img`
   width: 100%;
+  z-index: -1;
   ${breakpointsMedia({
     xs: 'height: 177px;',
-    md: 'height: 390px',
+    md: 'height: 350px',
   })}
 `;
 

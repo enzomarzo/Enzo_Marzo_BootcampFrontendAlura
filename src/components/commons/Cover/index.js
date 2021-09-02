@@ -13,7 +13,7 @@ const Container = styled.section`
 const CoverWrapper = styled.div`
   position: absolute;
   left: 120px;
-  top: 240px;
+  top: 220px;
   ${breakpointsMedia({
     xs: css`
       left: 30px;
@@ -45,15 +45,16 @@ const MainSubtitle = styled(Subtitle)`
   color: white;
 `;
 
-const Button = styled.button`
+const Button = styled.a`
   display: block;
+  width: fit-content;
+  text-decoration: none;
   background-color: transparent;
   overflow: visible;
   font-weight: 400px;
   color: #e6e4ec;
   letter-spacing: 2px;
   border: 1px solid rgba(238, 232, 255, 0.57);
-
   padding: 10px;
   border-radius: 2px;
   margin: 30px 0px 0px 7px ;
@@ -61,16 +62,16 @@ const Button = styled.button`
 
 export default function Cover() {
   return (
-    <>
-      <Container>
-        <CoverWrapper>
-          <MainTitle>Olá, sou o Enzo</MainTitle>
-          <MainSubtitle>
-            desenvolvedor front-end, apaixonado por inovação e movido por desafios
-          </MainSubtitle>
-          <Button>Saiba mais</Button>
-        </CoverWrapper>
-      </Container>
-    </>
+    <Container>
+      <CoverWrapper>
+        <MainTitle>Olá, sou o Enzo</MainTitle>
+        <MainSubtitle>
+          desenvolvedor front-end, apaixonado por inovação e movido por desafios
+        </MainSubtitle>
+        <Button href="#projetos">
+          Saiba mais
+        </Button>
+      </CoverWrapper>
+    </Container>
   );
 }

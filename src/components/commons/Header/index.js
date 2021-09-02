@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Link from 'next/link';
 import styled, { css } from 'styled-components';
 import {
   MenuIcon,
@@ -52,7 +53,6 @@ const Nav = styled.nav`
     padding-right: 0px;
     opacity: 1;
     display: absolute;
-
   }
 `;
 
@@ -101,15 +101,17 @@ export default function Header() {
           <span />
         </MenuIcon>
         <HeaderMenu isOpen={isOpen}>
-          <NavItem>
-            <HomeIcon size="18" />
-            Sobre
-          </NavItem>
-          <NavItem>
+          <Link href="/about">
+            <NavItem>
+              <HomeIcon size="18" />
+              Sobre
+            </NavItem>
+          </Link>
+          <NavItem href="/#projetos">
             <ProjectIcon size="18" />
             Projetos
           </NavItem>
-          <NavItem>
+          <NavItem href="/#contato">
             <ContactIcon size="18" />
             Contato
           </NavItem>

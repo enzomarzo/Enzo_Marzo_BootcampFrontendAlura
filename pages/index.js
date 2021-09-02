@@ -1,11 +1,11 @@
 import React from 'react';
 import Header from '../src/components/commons/Header';
+import Footer from '../src/components/commons/Footer';
 import Card from '../src/components/commons/Projects/Cards/CardRow';
 import CardFeatured from '../src/components/commons/Projects/Cards/CardFeatured';
 import Cover from '../src/components/commons/Cover';
 import { CardsRowWrapper, ProjectWrapper } from '../src/components/commons/Projects';
 import SectionTitle from '../src/components/shared/SectionTitle';
-import Footer from '../src/components/commons/Footer';
 import Form from '../src/components/commons/Form';
 
 export default function Home() {
@@ -14,7 +14,7 @@ export default function Home() {
       <Header />
       <Cover />
       <SectionTitle name="últimos projetos" />
-      <ProjectWrapper>
+      <ProjectWrapper id="projetos">
         <CardsRowWrapper>
           <Card
             imageDesktop="/images/letMeAskVer.png"
@@ -35,7 +35,9 @@ export default function Home() {
         />
       </ProjectWrapper>
       <SectionTitle name="Vamos Conversar ?" />
-      <Form />
+      <div id="contato">
+        <Form />
+      </div>
       <Footer />
     </>
   );
