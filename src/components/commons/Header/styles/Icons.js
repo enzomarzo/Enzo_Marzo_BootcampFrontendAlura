@@ -1,7 +1,22 @@
 import styled from 'styled-components';
-import { EmojiPeople, Code, MailOutline } from '@styled-icons/material-outlined';
+import {
+  Home, EmojiPeople, Code, MailOutline,
+} from '@styled-icons/material-outlined';
 
-export const HomeIcon = styled(EmojiPeople)`
+export const HomeIcon = styled(Home)`
+  margin-right: 4px;
+  padding-bottom: 1.5px;
+  color: ${({ theme }) => theme.colors.primary};
+  opacity: 0.7;
+  @media(max-width: 768px) {
+    color: ${({ theme }) => theme.colors.light};
+    margin-right: 10px;
+    vertical-align: top;
+    padding-bottom: 0;
+  }
+`;
+
+export const AboutIcon = styled(EmojiPeople)`
   margin-right: 4px;
   padding-bottom: 1.5px;
   color: ${({ theme }) => theme.colors.primary};

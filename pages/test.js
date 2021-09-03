@@ -1,5 +1,8 @@
 /* import React from 'react';
 
+// const backgroundColor = window.getComputedStyle(document.body, null).
+// getPropertyValue('background-color');
+
 // máscara de telefone (praticando)
 export default function Telefone() {
   const [telefone, setTelefone] = React.useState();

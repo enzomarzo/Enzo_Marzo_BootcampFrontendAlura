@@ -31,7 +31,7 @@ const subTitle = css`
 
 const paragraph = css`
   font-weight: 300;
-  text-align: left;
+  ${propToStyle('text-align')}
   line-height: 1.7em;
   word-spacing: .02em;
   ${breakpointsMedia({
