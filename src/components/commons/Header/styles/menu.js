@@ -86,6 +86,7 @@ export const NavItem = styled.a`
     text-decoration: none;
     align-items: center;
     transition: all 0.3s ease-in;
+    ${({ theme }) => theme.colors.primary};
 
     &:hover { 
       opacity: 0.65;
