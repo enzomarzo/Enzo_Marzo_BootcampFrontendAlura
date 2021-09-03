@@ -4,7 +4,7 @@ import Header from '../src/components/commons/Header';
 import Text from '../src/components/foundation/Text';
 import breakpointsMedia from '../src/theme/utils/breakpointsMedia';
 
-export default function NotFound() {
+export default function Page404() {
   const Container = styled.div`
   height: 100vh;
   background-color: ${({ theme }) => theme.colors.primary};

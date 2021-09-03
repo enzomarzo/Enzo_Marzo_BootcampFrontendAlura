@@ -1,3 +1,4 @@
+/* eslint no-use-before-define: 0 */
 /* import React from 'react';
 
 // const backgroundColor = window.getComputedStyle(document.body, null).
