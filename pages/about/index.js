@@ -12,10 +12,10 @@ export default function About() {
     background-color: ${({ theme }) => theme.colors.primary};
     color: ${({ theme }) => theme.colors.light};
     ${breakpointsMedia({
-    lg: css`padding: 5px 45px;`,
-    md: css`padding: 5px 35px;`,
-    sm: css`padding: 5px 25px;`,
-    xs: css`padding: 5px 20px;`,
+    lg: css`padding: 15px 40px;`,
+    md: css`padding: 15px 35px;`,
+    sm: css`padding: 65px 30px;`,
+    xs: css`padding: 65px 25px;`,
   })}
   `;
 
