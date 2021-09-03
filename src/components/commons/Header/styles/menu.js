@@ -79,7 +79,6 @@ export const NavRight = styled.nav`
   }
 `;
 
-
 export const NavItem = styled.a`
     padding: 16px 12px;
     font-size: 18px;
@@ -92,4 +91,3 @@ export const NavItem = styled.a`
       opacity: 0.65;
     }
 `;
-
