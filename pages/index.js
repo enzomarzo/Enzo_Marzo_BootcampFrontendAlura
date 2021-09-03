@@ -5,15 +5,15 @@ import Card from '../src/components/commons/Projects/Cards/CardRow';
 import CardFeatured from '../src/components/commons/Projects/Cards/CardFeatured';
 import Cover from '../src/components/commons/Cover';
 import { CardsRowWrapper, ProjectWrapper } from '../src/components/commons/Projects';
-import SectionTitle from '../src/components/shared/SectionTitle';
 import Form from '../src/components/commons/Form';
+import Text from '../src/components/foundation/Text';
 
 export default function Home() {
   return (
     <>
       <Header />
       <Cover />
-      <SectionTitle name="últimos projetos" />
+      <Text as="h1" variant="title" color="primary"> últimos Projetos</Text>
       <ProjectWrapper id="projetos">
         <CardsRowWrapper>
           <Card
@@ -34,7 +34,7 @@ export default function Home() {
           alt="Instalura"
         />
       </ProjectWrapper>
-      <SectionTitle name="Vamos Conversar ?" />
+      <Text as="h1" variant="title" color="primary">vamos conversar?</Text>
       <div id="contato">
         <Form />
       </div>

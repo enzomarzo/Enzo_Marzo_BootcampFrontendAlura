@@ -7,7 +7,7 @@ const Container = styled.section`
   width: 100%;
   height: 100vh;
   display: block;
-  background-color: #2f2f2f;
+  background-color: ${({ theme }) => theme.colors.primary};
 `;
 
 const CoverWrapper = styled.div`
