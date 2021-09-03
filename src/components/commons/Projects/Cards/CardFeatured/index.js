@@ -8,7 +8,7 @@ export const FeaturedIcon = styled.span`
   border: 1px solid black;
   position: absolute;
   margin: 10px;
-  z-index: 999;
+  z-index: 10;
   background-color: white;
   text-align: center;
   border-radius: 2px;

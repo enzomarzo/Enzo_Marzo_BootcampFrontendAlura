@@ -35,17 +35,17 @@ export default function Header() {
             <span />
           </MenuIcon>
           <HeaderMenu isOpen={isOpen}>
-            <Link href="/about" onClick={() => setIsOpen(!isOpen)}>
+            <Link href="/about" onClick={() => setIsOpen(false)}>
               <NavItem>
                 <AboutIcon size="18" />
                 Sobre
               </NavItem>
             </Link>
-            <NavItem href="/#projetos" onClick={() => setIsOpen(!isOpen)}>
+            <NavItem href="/#projetos" onClick={() => setIsOpen(false)}>
               <ProjectIcon size="18" />
               Projetos
             </NavItem>
-            <NavItem href="/#contato" onClick={() => setIsOpen(!isOpen)}>
+            <NavItem href="/#contato" onClick={() => setIsOpen(false)}>
               <ContactIcon size="18" />
               Contato
             </NavItem>

@@ -39,6 +39,7 @@ const MainTitle = styled(Title)`
 
 const MainSubtitle = styled(Subtitle)`
   display: block;
+  line-height: 1.3;
   margin: 0 0 0 5px;
   text-align: left;
   letter-spacing: 0.4px;

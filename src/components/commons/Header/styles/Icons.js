@@ -10,7 +10,6 @@ export const HomeIcon = styled(Home)`
   opacity: 0.7;
   @media(max-width: 768px) {
     color: ${({ theme }) => theme.colors.light};
-    margin-right: 10px;
     vertical-align: top;
     padding-bottom: 0;
   }

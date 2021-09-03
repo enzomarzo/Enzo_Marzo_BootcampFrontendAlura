@@ -54,8 +54,6 @@ export const Nav = styled.nav`
   @media (max-width: 768px) { 
     height: 0;
     opacity: 1;
-    position: relative;
-    display: absolute;
   }
 `;
 
@@ -64,6 +62,9 @@ export const NavLeft = styled.nav`
   display: flex;
   align-items: center;
   width: 50%;
+  @media (max-width: 768px) { 
+    padding-left: 15px;
+  }
 `;
 
 export const NavRight = styled.nav`
