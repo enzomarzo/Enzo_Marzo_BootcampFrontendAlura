@@ -1,5 +1,4 @@
-/* eslint no-use-before-define: 0 */
-/* import React from 'react';
+import React from 'react';
 
 // const backgroundColor = window.getComputedStyle(document.body, null).
 // getPropertyValue('background-color');
@@ -24,7 +23,7 @@ export default function Telefone() {
     </>
   );
 }
- */
+
 // 1 pegar os dados do input
 // 2 tirar o hifen, caso tenha, com o replace
 // 3 incluir o hifen se tiver 8 ou 9 numeros
