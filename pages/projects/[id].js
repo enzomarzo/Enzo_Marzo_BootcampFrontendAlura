@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useRouter } from 'next/router';
 import Header from '../../src/components/commons/Header';
 import Text from '../../src/components/foundation/Text';
-import Container from '../../src/components/shared/Container';
+import Container from '../../src/components/shared/container';
 
 export default function Projects() {
   const router = useRouter(); // pegando a rota
