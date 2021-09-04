@@ -1,9 +1,9 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { useRouter } from 'next/router';
 import Header from '../../src/components/commons/Header';
 import Text from '../../src/components/foundation/Text';
-import breakpointsMedia from '../../src/theme/utils/breakpointsMedia';
+import Container from '../../src/components/shared/Container';
 
 export default function Projects() {
   const router = useRouter(); // pegando a rota
@@ -29,25 +29,28 @@ export default function Projects() {
     },
   ];
 
-  const Container = styled.div`
-  background-color: ${({ theme }) => theme.colors.primary};
-  color: ${({ theme }) => theme.colors.light};
-  ${breakpointsMedia({
-    lg: css`padding: 15px 65px;`,
-    md: css`padding: 15px 50px;`,
-    sm: css`padding: 65px 35px;`,
-    xs: css`padding: 65px 25px;`,
-  })}
-  `;
-
   const Img = styled.img`
+    display: block;
     width: 100%;
     max-width: 900px;
+    padding: 10px;
     margin: 10px auto;
-    padding: 0px 10px;
-    display: block;
-  `;
+    border-radius: 6px;
+    background-size: cover;
+    transition: 0.3s;
+    cursor: pointer;
+    opacity: 0.95;
+`;
 
+  const Button = styled.button`
+  display: flex;
+  margin: 0px auto;
+  padding: 8px 15px;
+  border: 1px solid rgba(0,0,0,0.4);
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+`;
   return (
     <>
       <Header />
@@ -57,10 +60,11 @@ export default function Projects() {
           let projectImg = '';
           if (projectName === project.name) {
             projectImg = project.img;
+            return <Img src={projectImg} />;
           }
-          return <Img src={projectImg} />;
+          return projectImg;
         })}
-        <button>Visite o site</button>
+        <Button>Visite o site</Button>
         <Text as="h2" variant="subTitle">Sobre</Text>
         <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</Text>
       </Container>

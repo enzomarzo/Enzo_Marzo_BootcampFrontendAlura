@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import breakpointsMedia from '../../../../../theme/utils/breakpointsMedia';
 
 export const CardWrapper = styled.div`
+  background-color: ${({ theme }) => theme.colors.light};
   border-radius: 6px;
   border: 1px solid rgba(0,0,0,0.35);
   box-shadow: 0 3px 5px 0 rgba(0,0,0,0.1);
@@ -28,11 +29,15 @@ export const CardImage = styled.img`
 `;
 
 export const CardTitle = styled.h3`
-  font-weight: 700;
+  color: ${({ theme }) => theme.colors.primary};
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  padding: 10px;
+  margin: 0px auto;
+  font-weight: 500;
   text-align: center;
   ${breakpointsMedia({
-    xs: 'font-size: 24px',
-    md: 'font-size: 32px',
+    xs: 'font-size: 18px',
+    md: 'font-size: 24px',
   })}
   `;
 
@@ -42,8 +47,8 @@ export default function Card({ imageDesktop, title }) {
       <Link href={`/projects/${title}`}>
         <A>
           <CardWrapper>
-            <CardImage src={imageDesktop} />
             <CardTitle>{title}</CardTitle>
+            <CardImage src={imageDesktop} />
           </CardWrapper>
         </A>
       </Link>

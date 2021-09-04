@@ -19,6 +19,7 @@ export const CardsRowWrapper = styled.div`
 `;
 
 export const ProjectWrapper = styled.div`
+  background-size: 120%;
   align-self: center;
   ${breakpointsMedia({
     xs: css` 

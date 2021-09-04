@@ -6,9 +6,8 @@ const FooterWrapper = styled.footer`
   justify-content: center;
   align-items: center;
   height: 68px;
-  background-color: ${({ theme }) => theme.colors.secondary};
+  background-color: ${({ theme }) => theme.colors.light};
   width: 100%;
-  margin-top: 30px;
 `;
 
 const FooterIcons = styled.span`
