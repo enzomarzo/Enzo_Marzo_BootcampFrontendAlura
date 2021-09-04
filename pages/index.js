@@ -2,7 +2,6 @@ import React from 'react';
 import Header from '../src/components/commons/Header';
 import Footer from '../src/components/commons/Footer';
 import Card from '../src/components/commons/Projects/Cards/CardRow';
-import CardFeatured from '../src/components/commons/Projects/Cards/CardFeatured';
 import Cover from '../src/components/commons/Cover';
 import { CardsRowWrapper, ProjectWrapper } from '../src/components/commons/Projects';
 import Form from '../src/components/commons/Form';
@@ -16,23 +15,28 @@ export default function Home() {
       <Text as="h1" variant="title" color="primary"> últimos Projetos</Text>
       <ProjectWrapper id="projetos">
         <CardsRowWrapper>
-          <Card
-            imageDesktop="/images/letMeAskVer.png"
-            imageMobile="/images/letMeAskHor.jpg"
-            title="Let me Ask"
-          />
-          <Card
-            imageDesktop="/images/alurakut-vert.jpg"
-            imageMobile="/images/aluraKutHor.jpg"
-            title="Alura Kut"
-          />
-          <Card />
+          <div>
+            <Card
+              imageDesktop="/images/let-me-ask-500x230.jpg"
+              title="Let me Ask"
+            />
+            <Card
+              imageDesktop="/images/Corporating-500x230.jpg"
+              title="Corporating"
+            />
+          </div>
+          <div>
+            <Card
+              imageDesktop="/images/instalura-500x230.jpg"
+              title="Instalura"
+            />
+            <Card
+              imageDesktop="/images/skinkey-500x230.jpg"
+              title="Skinkey"
+            />
+          </div>
+
         </CardsRowWrapper>
-        <CardFeatured
-          imageDesktop="images/instaluraDesktop.jpg"
-          imageMobile="images/instaluraMobile.jpg"
-          alt="Instalura"
-        />
       </ProjectWrapper>
       <Text as="h1" variant="title" color="primary">vamos conversar?</Text>
       <div id="contato">
