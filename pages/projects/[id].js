@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
 import Header from '../../src/components/commons/Header';
@@ -13,6 +13,7 @@ export default function Projects() {
   const projects = [
     {
       name: 'Let me Ask',
+      githubName: 'nlw-LetMeAsk',
       img: '/images/let-me-ask-1000x560.jpg',
     },
     {
@@ -21,6 +22,7 @@ export default function Projects() {
     },
     {
       name: 'Instalura',
+      githubName: 'instalura-base',
       img: '/images/instalura-1000x560.jpg',
     },
     {
@@ -28,6 +30,13 @@ export default function Projects() {
       img: '/images/skinkey-1000x560.jpg',
     },
   ];
+
+  const [GitHubRepo, setGitHubRepo] = useState([]);
+  useEffect(() => {
+    fetch('https://api.github.com/users/enzomarzo/repos')
+      .then((res) => res.json())
+      .then((data) => setGitHubRepo(data));
+  }, []);
 
   const Img = styled.img`
     display: block;

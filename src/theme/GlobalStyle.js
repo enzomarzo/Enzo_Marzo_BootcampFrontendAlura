@@ -22,14 +22,20 @@ const GlobalStyle = createGlobalStyle`
     flex-direction: column;
   }
 
+  //sobrescrevendo responsividade do particle.js
+  canvas.tsparticles-canvas-el { 
+    width: 100vw !important;
+    height: 100vh !important;
+  }
+
   //ajustando o margin body por conta do fixed menu no desktop
   #projetos, #contato { 
-    padding-top: 200px;
-    margin-top: -200px;
+    padding-top: 180px;
+    margin-top: -180px;
   }
   @media(min-width: 768px) {
     body {
-      margin-top: 60px;
+      padding-top: 60px;
     }
   }
 `;

@@ -1,7 +1,7 @@
 export const colors = {
   primary: '#2f2f2f',
   secondary: '#FFF8E6',
-  light: '#FFFFFF',
+  light: '#e6e6e6',
 };
 
 export const breakpoints = {

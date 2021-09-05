@@ -45,8 +45,8 @@ export default function ParticleLib() {
             value: 3,
             random: true,
             anim: {
-              enable: false,
-              speed: 3,
+              enable: true,
+              speed: 2,
               size_min: 0.3,
               sync: false,
             },
