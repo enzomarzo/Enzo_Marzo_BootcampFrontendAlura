@@ -5,7 +5,6 @@ import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
 
 const Container = styled.section`
   width: 100%;
-  height: 100vh;
   display: block;
   background-color: ${({ theme }) => theme.colors.primary};
 `;
