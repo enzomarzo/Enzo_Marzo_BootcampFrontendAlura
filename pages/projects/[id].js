@@ -31,12 +31,12 @@ export default function Projects() {
     },
   ];
 
-  const [GitHubRepo, setGitHubRepo] = useState([]);
+  /*   const [GitHubRepo, setGitHubRepo] = useState([]);
   useEffect(() => {
     fetch('https://api.github.com/users/enzomarzo/repos')
       .then((res) => res.json())
       .then((data) => setGitHubRepo(data));
-  }, []);
+  }, []); */
 
   const Img = styled.img`
     display: block;
