@@ -23,6 +23,7 @@ export const HeaderMobileWrapper = styled.div`
     }
     return css`
       opacity: 1;
+      z-index: 999;
     `;
   }}
 `;

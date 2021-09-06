@@ -12,22 +12,30 @@ export default function Projects() {
   const projectName = projectPath.split('%20').join(' ');
   const projects = [
     {
+      name: 'Instalura',
+      githubName: 'instalura-base',
+      img: '/images/instalura-1000x560.jpg',
+      about: 'Criação de uma rede social baseada no Instagram. Esse projeto é parte do estudo do Bootcamp Avançado de Frontend da Alura com duração de 3 meses',
+      skills: ['reactjs', 'hooks', 'context-api', 'javascript', 'nextjs', 'styled-compontens', 'github actions', 'CI & CD', 'devops', 'good practices'],
+    },
+    {
       name: 'Let me Ask',
       githubName: 'nlw-LetMeAsk',
       img: '/images/let-me-ask-1000x560.jpg',
+      about: 'Durante a imersão React da Rocketseat criamos um projeto com',
+      skills: ['reactjs', 'firebase', 'hooks', 'typescipt'],
     },
     {
       name: 'Corporating',
       img: '/images/Corporating-1000x560.jpg',
-    },
-    {
-      name: 'Instalura',
-      githubName: 'instalura-base',
-      img: '/images/instalura-1000x560.jpg',
+      about: 'Startup lançada em 2017. Idealizei essa startup com base em um gap de comunicação entre clientes e fornecedores encontrado no setor de turismo.',
+      skills: ['Java', 'Angular', 'typescipt', 'OOP', 'AWS'],
     },
     {
       name: 'Skinkey',
       img: '/images/skinkey-1000x560.jpg',
+      about: 'criação do MVP de um e-commerce de produtos de skincare coreanos vendidos no Brasil.',
+      skills: ['WordPress', 'MVP', 'PHP'],
     },
   ];
 
@@ -40,15 +48,16 @@ export default function Projects() {
 
   const Img = styled.img`
     display: block;
-    width: 100%;
+    width: 90%;
     max-width: 900px;
-    padding: 10px;
-    margin: 10px auto;
-    border-radius: 6px;
+    margin: 15px auto;
+    border-radius: 3px;
     background-size: cover;
+    box-shadow: 5px 5px 0 rgb(155 155 155 / 15%);
     transition: 0.3s;
     cursor: pointer;
     opacity: 0.95;
+    border: 10px solid white;
 `;
 
   const Button = styled.button`
@@ -64,7 +73,7 @@ export default function Projects() {
     <>
       <Header />
       <Container>
-        <Text as="h1" text-align="center" variant="subTitle">{projectName}</Text>
+        <Text as="h1" font-weight="500" letter-spacing="1.2" text-align="center" variant="subTitle">{projectName}</Text>
         {projects.map((project) => {
           let projectImg = '';
           if (projectName === project.name) {
@@ -75,7 +84,14 @@ export default function Projects() {
         })}
         <Button>Visite o site</Button>
         <Text as="h2" variant="subTitle">Sobre</Text>
-        <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</Text>
+        {projects.map((project) => {
+          let projectAbout = '';
+          if (projectName === project.name) {
+            projectAbout = project.about;
+            return <Text>{projectAbout}</Text>;
+          }
+          return projectAbout;
+        })}
       </Container>
     </>
   );
