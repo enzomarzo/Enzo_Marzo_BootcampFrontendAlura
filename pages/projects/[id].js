@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import Header from '../../src/components/commons/Header';
 import Text from '../../src/components/foundation/Text';
 import Container from '../../src/components/shared/container';
+import Button from '../../src/components/shared/Button';
 
 export default function Projects() {
   const router = useRouter(); // pegando a rota
@@ -28,7 +29,7 @@ export default function Projects() {
     {
       name: 'Corporating',
       img: '/images/Corporating-1000x560.jpg',
-      about: 'Startup lançada em 2017. Idealizei essa startup com base em um gap de comunicação entre clientes e fornecedores encontrado no setor de turismo.',
+      about: 'Startup lançada em 2017. Idealizada na percepção de um problema de comunicação entre clientes e fornecedores encontrado no setor de turismo.',
       skills: ['Java', 'Angular', 'typescipt', 'OOP', 'AWS'],
     },
     {
@@ -39,7 +40,7 @@ export default function Projects() {
     },
   ];
 
-  /*   const [GitHubRepo, setGitHubRepo] = useState([]);
+  /* const [GitHubRepo, setGitHubRepo] = useState([]);
   useEffect(() => {
     fetch('https://api.github.com/users/enzomarzo/repos')
       .then((res) => res.json())
@@ -50,47 +51,36 @@ export default function Projects() {
     display: block;
     width: 90%;
     max-width: 900px;
-    margin: 15px auto;
+    margin: 15px auto 25px auto;
     border-radius: 3px;
     background-size: cover;
-    box-shadow: 5px 5px 0 rgb(155 155 155 / 15%);
+    box-shadow: 4px 4px 0 rgb(120 120 120 / 15%);
     transition: 0.3s;
     cursor: pointer;
     opacity: 0.95;
-    border: 10px solid white;
+    border: 1px solid rgba(255,255,255,0.2);
+
+    @media(max-width: 768px) {
+      width: 100%;
+  }
 `;
 
-  const Button = styled.button`
-  display: flex;
-  margin: 0px auto;
-  padding: 8px 15px;
-  border: 1px solid rgba(0,0,0,0.4);
-  border-radius: 10px;
-  font-weight: 600;
-  cursor: pointer;
-`;
   return (
     <>
       <Header />
       <Container>
         <Text as="h1" font-weight="500" letter-spacing="1.2" text-align="center" variant="subTitle">{projectName}</Text>
         {projects.map((project) => {
-          let projectImg = '';
-          if (projectName === project.name) {
-            projectImg = project.img;
-            return <Img src={projectImg} />;
-          }
-          return projectImg;
-        })}
-        <Button>Visite o site</Button>
-        <Text as="h2" variant="subTitle">Sobre</Text>
-        {projects.map((project) => {
-          let projectAbout = '';
-          if (projectName === project.name) {
-            projectAbout = project.about;
-            return <Text>{projectAbout}</Text>;
-          }
-          return projectAbout;
+          if (projectName !== project.name) return;
+          // eslint-disable-next-line consistent-return
+          return (
+            <>
+              <Img src={project.img} />
+              <Button margin="0 auto">Visite o site</Button>
+              <Text as="h2" variant="subTitle">Sobre</Text>
+              <Text>{project.about}</Text>
+            </>
+          );
         })}
       </Container>
     </>

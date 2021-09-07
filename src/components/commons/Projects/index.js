@@ -13,6 +13,11 @@ export const CardsRowWrapper = styled.div`
     md: css`
       flex-direction: row`,
   })}
+  @media(max-width: 768px) {
+    > div > a:last-child > div { 
+      margin-bottom: 0px;
+    }
+  }
 `;
 
 export const ProjectWrapper = styled.div`

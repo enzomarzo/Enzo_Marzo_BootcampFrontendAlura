@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 
 const FormWrapper = styled.form`
@@ -23,8 +23,9 @@ const Input = styled.input`
   }
 `;
 
-const TextArea = styled.textarea`
+const InputTextMessage = styled.textarea`
   min-width: 200px;
+  min-height: 80px;
   display: block;
   padding: 10px 15px;
   margin: 15px auto;
@@ -46,12 +47,48 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
+const Message = styled.div`
+  margin: 10px auto;
+`;
+
 export default function Form() {
+  const inputName = useRef(null);
+  const inputEmail = useRef(null);
+  const inputMessage = useRef(null);
+  const [message, setMessage] = useState('');
+  const subscribe = async (e) => {
+    e.preventDefault();
+    const res = await fetch('/api/subscribe', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: inputName.current.value,
+        email: inputEmail.current.value,
+        textMessage: inputMessage.current.value,
+      }),
+    });
+    const { error } = await res.json();
+    if (error) {
+      // 4. If there was an error, update the message in state.
+      setMessage(error);
+      return;
+    }
+    inputName.current.value = '';
+    inputEmail.current.value = '';
+    inputMessage.current.value = '';
+    setMessage('Obrigado 🎉. Seus dados estão seguros e enviarei e-mail apenas se necessário. Sem Spam :)');
+  };
+
   return (
-    <FormWrapper>
-      <Input type="text" name="nome" placeholder="seu nome" />
-      <Input type="email" name="email" placeholder="seu e-mail" />
-      <TextArea name="mensagem" rows="3" placeholder="escreva sua mensagem" />
+    <FormWrapper onSubmit={subscribe}>
+      <Input ref={inputName} type="text" name="nome" placeholder="seu nome" />
+      <Input ref={inputEmail} type="email" name="email" placeholder="seu e-mail" />
+      <InputTextMessage ref={inputMessage} type="text" name="mensagem" rows="3" placeholder="escreva sua mensagem" />
+      <Message id="messageDiv">
+        {message || ''}
+      </Message>
       <Button>Enviar</Button>
     </FormWrapper>
   );

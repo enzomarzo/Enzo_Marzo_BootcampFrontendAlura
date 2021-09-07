@@ -9,10 +9,10 @@ const title = css`
   font-weight: 400;
   text-align: center;
   ${breakpointsMedia({
-    lg: css`font-size: 70px;`, // 100%
-    md: css`font-size: 63px;`, // 90%
-    sm: css`font-size: 52.5px;`, // 75%
-    xs: css`font-size: 42px;`, // 60%
+    lg: css`font-size: 64px;`, // 100%
+    md: css`font-size: 57.6px;`, // 90%
+    sm: css`font-size: 48px;`, // 75%
+    xs: css`font-size: 38.4px;`, // 60%
   })}
 `;
 
