@@ -21,6 +21,7 @@ const subTitle = css`
   ${propToStyle('text-align')}
   ${propToStyle('font-weight')}
   ${propToStyle('letter-spacing')}
+  ${propToStyle('margin')}
   ${propToStyle('margin-top')}
   ${propToStyle('text-decoration')}
   ${breakpointsMedia({

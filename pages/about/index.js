@@ -7,73 +7,71 @@ import Footer from '../../src/components/commons/Footer';
 import Text from '../../src/components/foundation/Text';
 import breakpointsMedia from '../../src/theme/utils/breakpointsMedia';
 
-export default function About() {
-  const Container = styled.div`
-    background-color: ${({ theme }) => theme.colors.primary};
-    color: ${({ theme }) => theme.colors.light};
-    ${breakpointsMedia({
+const Container = styled.div`
+  background-color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.light};
+  ${breakpointsMedia({
     lg: css`padding: 15px 40px;`,
     md: css`padding: 15px 35px;`,
     sm: css`padding: 65px 30px;`,
     xs: css`padding: 65px 25px;`,
   })}
-  `;
+`;
+const A = styled.a`
+  color: inherit;
+  text-decoration: underline;
+`;
 
-  const A = styled.a`
-    color: inherit;
-    text-decoration: underline;
-  `;
+const Tag = styled.span`
+  display: inline-block;
+  padding: 8px 5px;
+  background-color: #313131;
+  border-width: 1px 1px 2px 1px;
+  border-style: solid;
+  border-color: #222;
+  border-radius: 3px;
+  text-transform: uppercase;
+  line-height: 1em;
+  box-shadow: 1px 1px 0 rgb(0 0 0 / 25%);
+  font-size: 0.8em;
+  opacity: 1;
+  position: relative;
+  overflow: hidden;
+`;
 
-  const Tag = styled.span`
-    display: inline-block;
-    padding: 8px 5px;
-    background-color: #313131;
-    border-width: 1px 1px 2px 1px;
-    border-style: solid;
-    border-color: #222;
-    border-radius: 3px;
-    text-transform: uppercase;
-    line-height: 1em;
-    box-shadow: 1px 1px 0 rgb(0 0 0 / 25%);
-    font-size: 0.8em;
-    opacity: 1;
-    position: relative;
-    overflow: hidden;
-  `;
+export const TagTitle = styled(Tag)`
+  width: 50px;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin: 3px 10px 3px 0;
+  color: #FCFCFC;
+`;
 
-  const TagTitle = styled(Tag)`
-    width: 50px;
-    text-align: center;
-    font-weight: 600;
-    letter-spacing: 1px;
-    margin: 3px 10px 3px 0;
-    color: #FCFCFC;
-  `;
+export const TagBody = styled(Tag)`
+  font-weight: 500;
+  margin: 3px;
+  color: #999;
 
-  const TagBody = styled(Tag)`
-    font-weight: 500;
-    margin: 3px;
-    color: #999;
+  &:hover { 
+    opacity: 0.7;
+    background-color: #3b3b3b;
+  }
+`;
 
-    &:hover { 
-      opacity: 0.7;
-      background-color: #3b3b3b;
-    }
-  `;
-
-  const linguagensNew = [
-    { 2019: ['HTML', 'CSS', 'Javascript', 'Angular', 'Git', 'Lean StartUp'] },
-    { 2020: ['Angular', 'Javascript', 'Typescript', 'Java', 'PHP', 'OOP', 'Scrum', 'Regex'] },
-    { 2021: ['React', 'NextJS', 'Styled Components', 'Clean Code'] },
-  ];
-
+const linguagensNew = [
+  { 2019: ['HTML', 'CSS', 'Javascript', 'Angular', 'Git', 'Lean StartUp'] },
+  { 2020: ['Angular', 'Javascript', 'Typescript', 'Java', 'PHP', 'OOP', 'Scrum', 'Regex'] },
+  { 2021: ['React', 'NextJS', 'Styled Components', 'Clean Code'] },
+];
+export default function About() {
   return (
     <>
       <Header />
       <Container>
         <Text as="h1" variant="subTitle">Quem sou eu ?</Text>
         <Text>
-          Gosto de filosofia, de xadrez, de cerveja e de conhecer e conversar com pessoas.
+          Gosto de filosofia, de xadrez, de cerveja, de conhecer e conversar com pessoas.
           Curto me desafiar e aprender coisas novas. Descobri a paixão pelo código em 2019.
         </Text>
         <Text>
@@ -84,7 +82,7 @@ export default function About() {
           <Link href="/#contato"><A>mensagem</A></Link>
           .
         </Text>
-        <Text as="h1" variant="subTitle">Por onde andei ?</Text>
+        <Text as="h1" margin-top="50px" variant="subTitle">Por onde andei ?</Text>
         <Text>
           Uma curiosidade em conhecer como as coisas funcionam no mundo dos negócios me levou
           a cursar administração e a minha facilidade pela área de exatas me fez adentrar
@@ -110,7 +108,7 @@ export default function About() {
           clientes e fornecedores no turismo, criei uma startup, chamada Corporating, que tinha
           como core tornar o segmento de turismo mais colaborativo e inclusivo.
         </Text>
-        <Text as="h1" variant="subTitle">O que estudei em Tecnologia ?</Text>
+        <Text as="h1" variant="subTitle" margin-top="50px">O que estudei em Tecnologia ?</Text>
         {linguagensNew.map((year) => (
           <div>
             <TagTitle>{Object.keys(year)}</TagTitle>

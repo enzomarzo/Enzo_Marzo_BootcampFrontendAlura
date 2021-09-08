@@ -5,6 +5,7 @@ import Header from '../../src/components/commons/Header';
 import Text from '../../src/components/foundation/Text';
 import Container from '../../src/components/shared/container';
 import Button from '../../src/components/shared/Button';
+import { TagBody } from '../about';
 
 export default function Projects() {
   const router = useRouter(); // pegando a rota
@@ -17,26 +18,26 @@ export default function Projects() {
       githubName: 'instalura-base',
       img: '/images/instalura-1000x560.jpg',
       about: 'Criação de uma rede social baseada no Instagram. Esse projeto é parte dos estudos do Bootcamp Avançado de Frontend da Alura com duração de 3 meses',
-      skills: ['reactjs', 'hooks', 'context-api', 'javascript', 'nextjs', 'styled-compontens', 'github actions', 'CI & CD', 'devops', 'good practices'],
+      stack: ['reactjs', 'hooks', 'context-api', 'javascript', 'nextjs', 'styled-compontens', 'github actions', 'CI & CD', 'devops', 'good practices'],
     },
     {
       name: 'Let me Ask',
       githubName: 'nlw-LetMeAsk',
       img: '/images/let-me-ask-1000x560.jpg',
       about: 'Durante a imersão React da Rocketseat criamos esse projeto com o create-react app utilizando o firebase para autenticação de usuário e para criação e consumo do banco de dados ',
-      skills: ['reactjs', 'firebase', 'hooks', 'typescipt'],
+      stack: ['reactjs', 'firebase', 'hooks', 'typescipt'],
     },
     {
       name: 'Corporating',
       img: '/images/Corporating-1000x560.jpg',
       about: 'Startup lançada em 2017. Idealizada na percepção de um problema de comunicação entre clientes e fornecedores encontrado no setor de turismo. Esse projeto foi desenvolvido com Java no Backend, Angular 6+ no Front-end, Nginx como servidor web e AWS como serviço de hospedagem.',
-      skills: ['Java', 'Angular', 'typescipt', 'OOP', 'AWS'],
+      stack: ['Java', 'Angular', 'typescipt', 'OOP', 'AWS'],
     },
     {
       name: 'Skinkey',
       img: '/images/skinkey-1000x560.jpg',
       about: 'criação do MVP de um e-commerce de produtos de skincare coreanos vendidos no Brasil.',
-      skills: ['WordPress', 'MVP', 'PHP'],
+      stack: ['WordPress', 'MVP', 'PHP'],
     },
   ];
 
@@ -66,6 +67,14 @@ export default function Projects() {
   }
 `;
 
+  const Hr = styled.hr`
+    width: 50%;
+    min-width: 100px;
+    margin-left: 0px;
+    margin-top: 0px;
+    opacity: 0.3;
+  `;
+
   return (
     <>
       <Header />
@@ -78,8 +87,12 @@ export default function Projects() {
             <>
               <Img src={project.img} />
               <Button margin="0 auto">Visite o site</Button>
-              <Text as="h2" variant="subTitle">Sobre</Text>
+              <Text as="h2" variant="subTitle" margin="50px 0 10px 0">Sobre o projeto</Text>
+              <Hr />
               <Text>{project.about}</Text>
+              <Text as="h2" variant="subTitle" margin="50px 0 10px 0">Stack utilizada</Text>
+              <Hr />
+              <p>{project.stack.map((stack) => <TagBody>{stack}</TagBody>)}</p>
             </>
           );
         })}
