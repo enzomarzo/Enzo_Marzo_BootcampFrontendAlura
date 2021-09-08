@@ -16,20 +16,20 @@ export default function Projects() {
       name: 'Instalura',
       githubName: 'instalura-base',
       img: '/images/instalura-1000x560.jpg',
-      about: 'Criação de uma rede social baseada no Instagram. Esse projeto é parte do estudo do Bootcamp Avançado de Frontend da Alura com duração de 3 meses',
+      about: 'Criação de uma rede social baseada no Instagram. Esse projeto é parte dos estudos do Bootcamp Avançado de Frontend da Alura com duração de 3 meses',
       skills: ['reactjs', 'hooks', 'context-api', 'javascript', 'nextjs', 'styled-compontens', 'github actions', 'CI & CD', 'devops', 'good practices'],
     },
     {
       name: 'Let me Ask',
       githubName: 'nlw-LetMeAsk',
       img: '/images/let-me-ask-1000x560.jpg',
-      about: 'Durante a imersão React da Rocketseat criamos um projeto com',
+      about: 'Durante a imersão React da Rocketseat criamos esse projeto com o create-react app utilizando o firebase para autenticação de usuário e para criação e consumo do banco de dados ',
       skills: ['reactjs', 'firebase', 'hooks', 'typescipt'],
     },
     {
       name: 'Corporating',
       img: '/images/Corporating-1000x560.jpg',
-      about: 'Startup lançada em 2017. Idealizada na percepção de um problema de comunicação entre clientes e fornecedores encontrado no setor de turismo.',
+      about: 'Startup lançada em 2017. Idealizada na percepção de um problema de comunicação entre clientes e fornecedores encontrado no setor de turismo. Esse projeto foi desenvolvido com Java no Backend, Angular 6+ no Front-end, Nginx como servidor web e AWS como serviço de hospedagem.',
       skills: ['Java', 'Angular', 'typescipt', 'OOP', 'AWS'],
     },
     {
@@ -59,6 +59,7 @@ export default function Projects() {
     cursor: pointer;
     opacity: 0.95;
     border: 1px solid rgba(255,255,255,0.2);
+    z-index:-1;
 
     @media(max-width: 768px) {
       width: 100%;
