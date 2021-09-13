@@ -4,7 +4,6 @@ export const HeaderMobileWrapper = styled.div`
   ${({ isOpen }) => {
     if (isOpen) {
       return css`
-        height: 100vh;
         display: flex;
         flex-direction: column;
         align-items: stretch;
@@ -32,7 +31,8 @@ export const HeaderMenu = styled.div`
   display: flex;
   @media(max-width: 768px) {
     flex-direction: column;
-    width: ${({ isOpen }) => (isOpen ? '200px' : '0')};;
+    position: ${({ isOpen }) => (isOpen ? 'inherit' : 'fixed')};
+    width: ${({ isOpen }) => (isOpen ? '200px' : '0')};
     height: ${({ isOpen }) => (isOpen ? '100vh' : '0')};
     padding-top: 55px;
     background-color: white;
@@ -53,6 +53,7 @@ export const Nav = styled.nav`
   flex-wrap: wrap;
   opacity: 0.95;
   @media (max-width: 768px) { 
+    position: absolute;
     height: 0;
     opacity: 1;
   }
@@ -78,7 +79,6 @@ export const NavRight = styled.nav`
     height: 0;
     padding-right: 0px;
     opacity: 1;
-    display: absolute;
   }
 `;
 

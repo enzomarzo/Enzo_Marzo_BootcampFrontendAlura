@@ -31,13 +31,13 @@ export default function Projects() {
       name: 'Corporating',
       img: '/images/Corporating-1000x560.jpg',
       about: 'Startup lançada em 2017. Idealizada na percepção de um problema de comunicação entre clientes e fornecedores encontrado no setor de turismo. Esse projeto foi desenvolvido com Java no Backend, Angular 6+ no Front-end, Nginx como servidor web e AWS como serviço de hospedagem.',
-      stack: ['Java', 'Angular', 'typescipt', 'OOP', 'AWS'],
+      stack: ['Java', 'Angular', 'Typescipt', 'Sass', 'Jenkins', 'AWS', 'Docker', 'Git', 'bitbucket'],
     },
     {
       name: 'Skinkey',
       img: '/images/skinkey-1000x560.jpg',
       about: 'criação do MVP de um e-commerce de produtos de skincare coreanos vendidos no Brasil.',
-      stack: ['WordPress', 'MVP', 'PHP'],
+      stack: ['Woocommerce', 'PHP', 'Javascript', 'CSS'],
     },
   ];
 
