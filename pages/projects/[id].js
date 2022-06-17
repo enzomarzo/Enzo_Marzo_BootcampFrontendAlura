@@ -25,7 +25,7 @@ export default function Projects() {
       githubName: 'nlw-LetMeAsk',
       img: '/images/let-me-ask-1000x560.jpg',
       about: 'Durante a imersão React da Rocketseat criamos esse projeto com o create-react app utilizando o firebase para autenticação de usuário e para criação e consumo do banco de dados ',
-      stack: ['reactjs', 'firebase', 'hooks', 'typescipt'],
+      stack: ['reactjs', 'firebase', 'hooks', 'typescript'],
     },
     {
       name: 'Corporating',

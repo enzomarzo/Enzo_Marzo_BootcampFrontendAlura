@@ -22,13 +22,13 @@ const GlobalStyle = createGlobalStyle`
     flex-direction: column;
   }
 
-  //sobrescrevendo responsividade do particle.js
+  //override particle.js
   canvas.tsparticles-canvas-el { 
     width: 100vw !important;
     height: 100vh !important;
   }
 
-  //ajustando o margin body por conta do fixed menu no desktop
+  //adjust body-margin due to fixed menu on desktop
   #projetos, #contato { 
     padding-top: 180px;
     margin-top: -180px;
