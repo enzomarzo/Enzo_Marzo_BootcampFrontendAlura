@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
 import { gql } from '@apollo/client';
-import { shape, number, string } from 'prop-types';
+import { arrayOf, shape, string } from 'prop-types';
 
 import { useRouter } from 'next/router';
 import Header from '../../src/components/commons/Header';
@@ -108,7 +108,9 @@ export default function Projects({ projects }) {
               <Hr />
               <p>
                 {project.stack.map((stack) => (
-                  <TagBody>{stack.langName}</TagBody>
+                  <TagBody key={stack.id}>
+                    {stack.langName}
+                  </TagBody>
                 ))}
               </p>
             </Fragment>
@@ -120,17 +122,21 @@ export default function Projects({ projects }) {
 }
 
 Projects.propTypes = {
-  projects: shape({
-    id: number,
-    about: string,
-    name: string,
-    img: shape({
-      alt: string,
-      url: string,
-    }),
-    stack: shape({
-      id: number,
-      langName: string,
-    }),
-  }),
+  projects: arrayOf(
+    shape({
+      id: string,
+      about: string,
+      name: string,
+      img: shape({
+        alt: string,
+        url: string,
+      }),
+      stack: arrayOf(
+        shape({
+          id: string,
+          langName: string,
+        })
+      ),
+    })
+  ),
 };

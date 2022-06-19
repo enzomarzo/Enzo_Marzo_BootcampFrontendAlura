@@ -1,6 +1,6 @@
 import React from 'react';
 import { gql } from '@apollo/client';
-import { shape, string, number } from 'prop-types';
+import { arrayOf, shape, string } from 'prop-types';
 
 import Header from '../src/components/commons/Header';
 import Footer from '../src/components/commons/Footer';
@@ -76,12 +76,14 @@ export default function Home({ projects }) {
 }
 
 Home.propTypes = {
-  projects: shape({
-    id: number,
-    name: string,
-    smallImage: shape({
-      alt: string,
-      url: string,
+  projects: arrayOf(
+    shape({
+      id: string,
+      name: string,
+      smallImage: shape({
+        alt: string,
+        url: string,
+      }),
     }),
-  }),
+  ),
 };
