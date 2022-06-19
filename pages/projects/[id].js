@@ -1,45 +1,48 @@
-import React, { useState, useEffect } from 'react';
+import React, { Fragment } from 'react';
 import styled from 'styled-components';
+import { gql } from '@apollo/client';
+import { shape, number, string } from 'prop-types';
+
 import { useRouter } from 'next/router';
 import Header from '../../src/components/commons/Header';
 import Text from '../../src/components/foundation/Text';
 import Container from '../../src/components/shared/container';
 import Button from '../../src/components/shared/Button';
 import { TagBody } from '../about';
+import { client } from '../_app';
 
-export default function Projects() {
-  const router = useRouter(); // pegando a rota
-  const path = router.asPath.split('/'); // obtendo rota completa e colocando em um array
-  const projectPath = path[path.length - 1];
+export async function getServerSideProps() {
+  const { data } = await client.query({
+    query: gql`
+      query getProjects {
+        allProjects {
+          id
+          about
+          name
+          img {
+            alt
+            url
+          }
+          stack {
+            id
+            langName
+          }
+        }
+      }
+    `,
+  });
+  return {
+    props: {
+      projects: data.allProjects,
+    },
+  };
+}
+
+export default function Projects({ projects }) {
+  const router = useRouter(); // get the current path
+  const path = router.asPath.split('/'); // add entire path inside an array
+  const projectPath = path[path.length - 1]; // get the last part of the path (which has the name)
   const projectName = projectPath.split('%20').join(' ');
-  const projects = [
-    {
-      name: 'Instalura',
-      githubName: 'instalura-base',
-      img: '/images/instalura-1000x560.jpg',
-      about: 'Criação de uma rede social baseada no Instagram. Esse projeto é parte dos estudos do Bootcamp Avançado de Frontend da Alura com duração de 3 meses',
-      stack: ['reactjs', 'hooks', 'context-api', 'javascript', 'nextjs', 'styled-compontens', 'github actions', 'CI & CD', 'devops', 'good practices'],
-    },
-    {
-      name: 'Let me Ask',
-      githubName: 'nlw-LetMeAsk',
-      img: '/images/let-me-ask-1000x560.jpg',
-      about: 'Durante a imersão React da Rocketseat criamos esse projeto com o create-react app utilizando o firebase para autenticação de usuário e para criação e consumo do banco de dados ',
-      stack: ['reactjs', 'firebase', 'hooks', 'typescript'],
-    },
-    {
-      name: 'Corporating',
-      img: '/images/Corporating-1000x560.jpg',
-      about: 'Startup lançada em 2017. Idealizada na percepção de um problema de comunicação entre clientes e fornecedores encontrado no setor de turismo. Esse projeto foi desenvolvido com Java no Backend, Angular 6+ no Front-end, Nginx como servidor web e AWS como serviço de hospedagem.',
-      stack: ['Java', 'Angular', 'Typescipt', 'Sass', 'Jenkins', 'AWS', 'Docker', 'Git', 'bitbucket'],
-    },
-    {
-      name: 'Skinkey',
-      img: '/images/skinkey-1000x560.jpg',
-      about: 'criação do MVP de um e-commerce de produtos de skincare coreanos vendidos no Brasil.',
-      stack: ['Woocommerce', 'PHP', 'Javascript', 'CSS'],
-    },
-  ];
 
   /* const [GitHubRepo, setGitHubRepo] = useState([]);
   useEffect(() => {
@@ -59,13 +62,13 @@ export default function Projects() {
     transition: 0.3s;
     cursor: pointer;
     opacity: 0.95;
-    border: 1px solid rgba(255,255,255,0.2);
-    z-index:-1;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: -1;
 
-    @media(max-width: 768px) {
+    @media (max-width: 768px) {
       width: 100%;
-  }
-`;
+    }
+  `;
 
   const Hr = styled.hr`
     width: 50%;
@@ -79,24 +82,55 @@ export default function Projects() {
     <>
       <Header />
       <Container>
-        <Text as="h1" font-weight="500" letter-spacing="1.2" text-align="center" variant="subTitle">{projectName}</Text>
+        <Text
+          as="h1"
+          font-weight="500"
+          letter-spacing="1.2"
+          text-align="center"
+          variant="subTitle"
+        >
+          {projectName}
+        </Text>
         {projects.map((project) => {
-          if (projectName !== project.name) return;
-          // eslint-disable-next-line consistent-return
+          if (projectName !== project.name) return false;
           return (
-            <>
-              <Img src={project.img} />
+            <Fragment key={project.id}>
+              <Img src={project.img.url} />
               <Button margin="0 auto">Visite o site</Button>
-              <Text as="h2" variant="subTitle" margin="50px 0 10px 0">Sobre o projeto</Text>
+              <Text as="h2" variant="subTitle" margin="50px 0 10px 0">
+                Sobre o projeto
+              </Text>
               <Hr />
               <Text>{project.about}</Text>
-              <Text as="h2" variant="subTitle" margin="50px 0 10px 0">Stack utilizada</Text>
+              <Text as="h2" variant="subTitle" margin="50px 0 10px 0">
+                Stack utilizada
+              </Text>
               <Hr />
-              <p>{project.stack.map((stack) => <TagBody>{stack}</TagBody>)}</p>
-            </>
+              <p>
+                {project.stack.map((stack) => (
+                  <TagBody>{stack.langName}</TagBody>
+                ))}
+              </p>
+            </Fragment>
           );
         })}
       </Container>
     </>
   );
 }
+
+Projects.propTypes = {
+  projects: shape({
+    id: number,
+    about: string,
+    name: string,
+    img: shape({
+      alt: string,
+      url: string,
+    }),
+    stack: shape({
+      id: number,
+      langName: string,
+    }),
+  }),
+};

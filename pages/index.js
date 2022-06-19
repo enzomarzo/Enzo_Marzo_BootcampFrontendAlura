@@ -1,5 +1,7 @@
 import React from 'react';
 import { gql } from '@apollo/client';
+import { shape, string, number } from 'prop-types';
+
 import Header from '../src/components/commons/Header';
 import Footer from '../src/components/commons/Footer';
 import Card from '../src/components/commons/Projects/Cards/CardRow';
@@ -21,12 +23,9 @@ export async function getStaticProps() {
         allProjects {
           id
           name
-          img {
+          smallImage {
+            alt
             url
-            title
-          }
-          stack {
-            langName
           }
         }
       }
@@ -49,31 +48,17 @@ export default function Home({ projects }) {
       </ContainerCover>
       <Container background-color="white">
         <Text as="h1" variant="title" color="primary">
-          {console.log(projects)}
           últimos Projetos
         </Text>
         <ProjectWrapper id="projetos">
           <CardsRowWrapper>
-            <div>
+            {projects.map((project) => (
               <Card
-                imageDesktop="/images/instalura-500x230.jpg"
-                title="Instalura"
+                key={project.id}
+                title={project.name}
+                imageDesktop={project.smallImage.url}
               />
-              <Card
-                imageDesktop="/images/let-me-ask-500x230.jpg"
-                title="Let me Ask"
-              />
-            </div>
-            <div>
-              <Card
-                imageDesktop="/images/Corporating-500x230.jpg"
-                title="Corporating"
-              />
-              <Card
-                imageDesktop="/images/skinkey-500x230.jpg"
-                title="Skinkey"
-              />
-            </div>
+            ))}
           </CardsRowWrapper>
         </ProjectWrapper>
       </Container>
@@ -89,3 +74,14 @@ export default function Home({ projects }) {
     </>
   );
 }
+
+Home.propTypes = {
+  projects: shape({
+    id: number,
+    name: string,
+    smallImage: shape({
+      alt: string,
+      url: string,
+    }),
+  }),
+};

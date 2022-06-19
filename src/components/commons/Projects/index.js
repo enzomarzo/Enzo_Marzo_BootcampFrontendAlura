@@ -3,7 +3,9 @@ import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
 
 export const CardsRowWrapper = styled.div`
   display: flex;
+  flex-wrap: wrap;
   align-self: center;
+  place-content: center;
   margin-bottom:20px;
   ${breakpointsMedia({
     xs: css`
