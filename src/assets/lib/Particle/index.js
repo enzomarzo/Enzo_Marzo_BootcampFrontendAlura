@@ -1,13 +1,22 @@
 import React from 'react';
-import Particles from 'react-particles-js';
+import Particles from 'react-tsparticles';
+import { loadFull } from 'tsparticles';
 
 export default function ParticleLib() {
+  const particlesInit = async (main) => {
+    await loadFull(main);
+  };
   return (
     <Particles
-      params={{
+      id="tsparticles"
+      init={particlesInit}
+      options={{
+        background: {
+          opacity: 0,
+        },
         particles: {
           number: {
-            value: 25,
+            value: 10,
             density: {
               enable: true,
               value_area: 500,
@@ -23,12 +32,11 @@ export default function ParticleLib() {
               color: '#000000',
             },
             polygon: {
-              nb_sides: 4,
+              nb_sides: 3,
             },
             image: {
-              src: 'img' / 'github.svg',
-              width: 100,
-              height: 100,
+              width: 50,
+              height: 50,
             },
           },
           opacity: {
@@ -36,13 +44,13 @@ export default function ParticleLib() {
             random: true,
             anim: {
               enable: true,
-              speed: 2,
+              speed: 1,
               opacity_min: 0,
               sync: false,
             },
           },
           size: {
-            value: 3,
+            value: 2,
             random: true,
             anim: {
               enable: true,
@@ -73,6 +81,7 @@ export default function ParticleLib() {
             },
           },
         },
+        fullScreen: false,
         interactivity: {
           detect_on: 'canvas',
           events: {
@@ -112,7 +121,7 @@ export default function ParticleLib() {
             },
           },
         },
-        retina_detect: true,
+        detectRetina: true,
       }}
     />
   );

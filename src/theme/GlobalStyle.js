@@ -23,9 +23,9 @@ const GlobalStyle = createGlobalStyle`
   }
 
   //override particle.js
-  canvas.tsparticles-canvas-el { 
-    width: 100vw !important;
-    height: 100vh !important;
+  #tsparticles > canvas { 
+    position: absolute !important;
+    z-index:: -999 !important;
   }
 
   //adjust body-margin due to fixed menu on desktop
