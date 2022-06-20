@@ -1,5 +1,4 @@
 import React from 'react';
-import { gql } from '@apollo/client';
 import { arrayOf, shape, string } from 'prop-types';
 
 import Header from '../src/components/commons/Header';
@@ -14,22 +13,12 @@ import Form from '../src/components/commons/Form';
 import Text from '../src/components/foundation/Text';
 import Container, { ContainerCover } from '../src/components/shared/container';
 import ParticleLib from '../src/assets/lib/Particle';
-import { client } from './_app';
+import CMSGraphQLClient from '../src/components/service/CMS/CMSGraphQLClient';
+import GET_PROJECTS from '../src/components/queries/getProjects';
 
 export async function getStaticProps() {
-  const { data } = await client.query({
-    query: gql`
-      query getProjects {
-        allProjects {
-          id
-          name
-          smallImage {
-            alt
-            url
-          }
-        }
-      }
-    `,
+  const { data } = await CMSGraphQLClient.query({
+    query: GET_PROJECTS,
   });
   return {
     props: {
@@ -84,6 +73,6 @@ Home.propTypes = {
         alt: string,
         url: string,
       }),
-    }),
+    })
   ),
 };

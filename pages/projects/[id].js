@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
-import { gql } from '@apollo/client';
 import { arrayOf, shape, string } from 'prop-types';
 
 import { useRouter } from 'next/router';
@@ -9,27 +8,12 @@ import Text from '../../src/components/foundation/Text';
 import Container from '../../src/components/shared/container';
 import Button from '../../src/components/shared/Button';
 import { TagBody } from '../about';
-import { client } from '../_app';
+import CMSGraphQLClient from '../../src/components/service/CMS/CMSGraphQLClient';
+import GET_PROJECT_DETAILS from '../../src/components/queries/getProjectsDetails';
 
 export async function getServerSideProps() {
-  const { data } = await client.query({
-    query: gql`
-      query getProjects {
-        allProjects {
-          id
-          about
-          name
-          img {
-            alt
-            url
-          }
-          stack {
-            id
-            langName
-          }
-        }
-      }
-    `,
+  const { data } = await CMSGraphQLClient.query({
+    query: GET_PROJECT_DETAILS,
   });
   return {
     props: {

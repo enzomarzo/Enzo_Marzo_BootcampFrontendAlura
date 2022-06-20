@@ -2,32 +2,10 @@
 import React from 'react';
 import Head from 'next/head';
 import { ThemeProvider } from 'styled-components';
-import {
-  ApolloClient,
-  createHttpLink,
-  InMemoryCache,
-  ApolloProvider,
-} from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
+import { ApolloProvider } from '@apollo/client';
 import GlobalStyle from '../src/theme/GlobalStyle';
 import theme from '../src/theme';
-
-const TOKEN = process.env.DATO_CMS_TOKEN;
-const httpLink = createHttpLink({
-  uri: 'https://graphql.datocms.com/',
-});
-
-const authLink = setContext((_, { headers }) => ({
-  headers: {
-    ...headers,
-    authorization: `Bearer ${TOKEN}`,
-  },
-}));
-
-export const client = new ApolloClient({
-  link: authLink.concat(httpLink),
-  cache: new InMemoryCache(),
-});
+import CMSGraphQLClient from '../src/components/service/CMS/CMSGraphQLClient';
 
 export default function App({ Component, pageProps }) {
   return (
@@ -40,7 +18,7 @@ export default function App({ Component, pageProps }) {
           rel="stylesheet"
         />
       </Head>
-      <ApolloProvider client={client}>
+      <ApolloProvider client={CMSGraphQLClient}>
         <ThemeProvider theme={theme}>
           <GlobalStyle />
           <Component {...pageProps} />
